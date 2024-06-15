@@ -52,6 +52,7 @@
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonSelectLanguage = new System.Windows.Forms.Button();
             this.contextMenuStripMain.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -62,11 +63,11 @@
             this.textBoxDirectory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxDirectory.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBoxDirectory.Enabled = false;
-            this.textBoxDirectory.Font = new System.Drawing.Font("Valken", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDirectory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDirectory.ForeColor = System.Drawing.Color.White;
             this.textBoxDirectory.Location = new System.Drawing.Point(12, 34);
             this.textBoxDirectory.Name = "textBoxDirectory";
-            this.textBoxDirectory.Size = new System.Drawing.Size(497, 21);
+            this.textBoxDirectory.Size = new System.Drawing.Size(497, 20);
             this.textBoxDirectory.TabIndex = 0;
             // 
             // buttonFolderBrowser
@@ -74,7 +75,7 @@
             this.buttonFolderBrowser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.buttonFolderBrowser.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.buttonFolderBrowser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonFolderBrowser.Font = new System.Drawing.Font("Valken", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFolderBrowser.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFolderBrowser.ForeColor = System.Drawing.Color.White;
             this.buttonFolderBrowser.Location = new System.Drawing.Point(515, 34);
             this.buttonFolderBrowser.Name = "buttonFolderBrowser";
@@ -87,11 +88,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Valken", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(207, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 14);
+            this.label1.Size = new System.Drawing.Size(118, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Gorilla Tag Folder Path:";
             // 
@@ -102,11 +103,11 @@
             this.buttonInstall.Enabled = false;
             this.buttonInstall.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.buttonInstall.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInstall.Font = new System.Drawing.Font("Valken", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInstall.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonInstall.ForeColor = System.Drawing.Color.White;
-            this.buttonInstall.Location = new System.Drawing.Point(547, 130);
+            this.buttonInstall.Location = new System.Drawing.Point(551, 116);
             this.buttonInstall.Name = "buttonInstall";
-            this.buttonInstall.Size = new System.Drawing.Size(112, 54);
+            this.buttonInstall.Size = new System.Drawing.Size(112, 46);
             this.buttonInstall.TabIndex = 4;
             this.buttonInstall.Text = "Install / Update";
             this.buttonInstall.UseVisualStyleBackColor = false;
@@ -116,12 +117,12 @@
             // 
             this.labelStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelStatus.AutoSize = true;
-            this.labelStatus.Font = new System.Drawing.Font("Valken", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelStatus.ForeColor = System.Drawing.Color.White;
             this.labelStatus.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             this.labelStatus.Location = new System.Drawing.Point(9, 9);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(70, 14);
+            this.labelStatus.Size = new System.Drawing.Size(61, 13);
             this.labelStatus.TabIndex = 5;
             this.labelStatus.Text = "Status: Null";
             this.labelStatus.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -130,13 +131,13 @@
             // 
             this.contextMenuStripMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.contextMenuStripMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.contextMenuStripMain.Font = new System.Drawing.Font("Valken", 8F);
+            this.contextMenuStripMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.contextMenuStripMain.ImageScalingSize = new System.Drawing.Size(0, 0);
             this.contextMenuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewInfoToolStripMenuItem});
             this.contextMenuStripMain.Name = "contextMenuStripMain";
             this.contextMenuStripMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextMenuStripMain.Size = new System.Drawing.Size(125, 26);
+            this.contextMenuStripMain.Size = new System.Drawing.Size(119, 26);
             // 
             // viewInfoToolStripMenuItem
             // 
@@ -145,7 +146,7 @@
             this.viewInfoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.viewInfoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.viewInfoToolStripMenuItem.Name = "viewInfoToolStripMenuItem";
-            this.viewInfoToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.viewInfoToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.viewInfoToolStripMenuItem.Text = "View Info";
             this.viewInfoToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.viewInfoToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -157,11 +158,11 @@
             this.buttonRestoreMods.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.buttonRestoreMods.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.buttonRestoreMods.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRestoreMods.Font = new System.Drawing.Font("Valken", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRestoreMods.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRestoreMods.ForeColor = System.Drawing.Color.White;
-            this.buttonRestoreMods.Location = new System.Drawing.Point(547, 310);
+            this.buttonRestoreMods.Location = new System.Drawing.Point(551, 272);
             this.buttonRestoreMods.Name = "buttonRestoreMods";
-            this.buttonRestoreMods.Size = new System.Drawing.Size(112, 61);
+            this.buttonRestoreMods.Size = new System.Drawing.Size(112, 46);
             this.buttonRestoreMods.TabIndex = 3;
             this.buttonRestoreMods.Text = "Restore Mods";
             this.buttonRestoreMods.UseVisualStyleBackColor = false;
@@ -173,12 +174,12 @@
             this.buttonBackupMods.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.buttonBackupMods.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.buttonBackupMods.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBackupMods.Font = new System.Drawing.Font("Valken", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBackupMods.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBackupMods.ForeColor = System.Drawing.Color.White;
-            this.buttonBackupMods.Location = new System.Drawing.Point(547, 250);
+            this.buttonBackupMods.Location = new System.Drawing.Point(551, 220);
             this.buttonBackupMods.Name = "buttonBackupMods";
             this.buttonBackupMods.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.buttonBackupMods.Size = new System.Drawing.Size(112, 54);
+            this.buttonBackupMods.Size = new System.Drawing.Size(112, 46);
             this.buttonBackupMods.TabIndex = 1;
             this.buttonBackupMods.Text = "Backup Mods";
             this.buttonBackupMods.UseVisualStyleBackColor = false;
@@ -190,11 +191,11 @@
             this.buttonUninstallAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.buttonUninstallAll.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.buttonUninstallAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUninstallAll.Font = new System.Drawing.Font("Valken", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUninstallAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUninstallAll.ForeColor = System.Drawing.Color.White;
-            this.buttonUninstallAll.Location = new System.Drawing.Point(547, 190);
+            this.buttonUninstallAll.Location = new System.Drawing.Point(551, 168);
             this.buttonUninstallAll.Name = "buttonUninstallAll";
-            this.buttonUninstallAll.Size = new System.Drawing.Size(112, 54);
+            this.buttonUninstallAll.Size = new System.Drawing.Size(112, 46);
             this.buttonUninstallAll.TabIndex = 0;
             this.buttonUninstallAll.Text = "Uninstall All Mods";
             this.buttonUninstallAll.UseVisualStyleBackColor = false;
@@ -207,11 +208,11 @@
             this.buttonModInfo.Enabled = false;
             this.buttonModInfo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.buttonModInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonModInfo.Font = new System.Drawing.Font("Valken", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonModInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonModInfo.ForeColor = System.Drawing.Color.White;
-            this.buttonModInfo.Location = new System.Drawing.Point(547, 70);
+            this.buttonModInfo.Location = new System.Drawing.Point(551, 64);
             this.buttonModInfo.Name = "buttonModInfo";
-            this.buttonModInfo.Size = new System.Drawing.Size(112, 54);
+            this.buttonModInfo.Size = new System.Drawing.Size(112, 46);
             this.buttonModInfo.TabIndex = 9;
             this.buttonModInfo.Text = "View Mod Info";
             this.buttonModInfo.UseVisualStyleBackColor = false;
@@ -224,11 +225,11 @@
             this.buttonToggleMods.Enabled = false;
             this.buttonToggleMods.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.buttonToggleMods.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonToggleMods.Font = new System.Drawing.Font("Valken", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonToggleMods.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonToggleMods.ForeColor = System.Drawing.Color.White;
-            this.buttonToggleMods.Location = new System.Drawing.Point(547, 10);
+            this.buttonToggleMods.Location = new System.Drawing.Point(551, 12);
             this.buttonToggleMods.Name = "buttonToggleMods";
-            this.buttonToggleMods.Size = new System.Drawing.Size(112, 54);
+            this.buttonToggleMods.Size = new System.Drawing.Size(112, 46);
             this.buttonToggleMods.TabIndex = 10;
             this.buttonToggleMods.Text = "Disable Mods";
             this.buttonToggleMods.UseVisualStyleBackColor = false;
@@ -239,7 +240,7 @@
             this.buttonOpenGameFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.buttonOpenGameFolder.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.buttonOpenGameFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOpenGameFolder.Font = new System.Drawing.Font("Valken", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOpenGameFolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonOpenGameFolder.ForeColor = System.Drawing.Color.White;
             this.buttonOpenGameFolder.Location = new System.Drawing.Point(407, 60);
             this.buttonOpenGameFolder.Name = "buttonOpenGameFolder";
@@ -254,7 +255,7 @@
             this.buttonOpenConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.buttonOpenConfig.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.buttonOpenConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOpenConfig.Font = new System.Drawing.Font("Valken", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOpenConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonOpenConfig.ForeColor = System.Drawing.Color.White;
             this.buttonOpenConfig.Location = new System.Drawing.Point(12, 60);
             this.buttonOpenConfig.Name = "buttonOpenConfig";
@@ -269,7 +270,7 @@
             this.buttonMods.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.buttonMods.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.buttonMods.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMods.Font = new System.Drawing.Font("Valken", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMods.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonMods.ForeColor = System.Drawing.Color.White;
             this.buttonMods.Location = new System.Drawing.Point(210, 60);
             this.buttonMods.Name = "buttonMods";
@@ -289,7 +290,7 @@
             this.columnHeaderName,
             this.columnHeaderAuthor});
             this.listViewMods.ContextMenuStrip = this.contextMenuStripMain;
-            this.listViewMods.Font = new System.Drawing.Font("Valken", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewMods.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewMods.ForeColor = System.Drawing.Color.White;
             this.listViewMods.FullRowSelect = true;
             this.listViewMods.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
@@ -304,6 +305,7 @@
             this.listViewMods.View = System.Windows.Forms.View.Details;
             this.listViewMods.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listViewMods_ItemChecked);
             this.listViewMods.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listViewMods_ItemSelectionChanged);
+            this.listViewMods.SelectedIndexChanged += new System.EventHandler(this.listViewMods_SelectedIndexChanged);
             this.listViewMods.DoubleClick += new System.EventHandler(this.listViewMods_DoubleClick);
             // 
             // columnHeaderName
@@ -319,14 +321,14 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.contextMenuStrip1.Font = new System.Drawing.Font("Valken", 8F);
+            this.contextMenuStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(0, 0);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.quitToolStripMenuItem,
             this.minimizeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(124, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(115, 48);
             // 
             // quitToolStripMenuItem
             // 
@@ -336,7 +338,7 @@
             this.quitToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.quitToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.clickQuit);
@@ -345,7 +347,7 @@
             // 
             this.minimizeToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.minimizeToolStripMenuItem.Name = "minimizeToolStripMenuItem";
-            this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.minimizeToolStripMenuItem.Text = "Minimize";
             this.minimizeToolStripMenuItem.Click += new System.EventHandler(this.clickMinimize);
             // 
@@ -360,6 +362,22 @@
             this.panel1.Size = new System.Drawing.Size(2, 360);
             this.panel1.TabIndex = 11;
             // 
+            // buttonSelectLanguage
+            // 
+            this.buttonSelectLanguage.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonSelectLanguage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.buttonSelectLanguage.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.buttonSelectLanguage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSelectLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSelectLanguage.ForeColor = System.Drawing.Color.White;
+            this.buttonSelectLanguage.Location = new System.Drawing.Point(551, 324);
+            this.buttonSelectLanguage.Name = "buttonSelectLanguage";
+            this.buttonSelectLanguage.Size = new System.Drawing.Size(112, 46);
+            this.buttonSelectLanguage.TabIndex = 12;
+            this.buttonSelectLanguage.Text = "Select Language";
+            this.buttonSelectLanguage.UseVisualStyleBackColor = false;
+            this.buttonSelectLanguage.Click += new System.EventHandler(this.buttonSelectLanguage_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -367,6 +385,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(671, 383);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.buttonSelectLanguage);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listViewMods);
             this.Controls.Add(this.buttonOpenConfig);
@@ -422,6 +441,7 @@
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem minimizeToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button buttonSelectLanguage;
     }
 }
 

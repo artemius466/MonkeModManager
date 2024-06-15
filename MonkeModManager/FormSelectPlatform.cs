@@ -21,5 +21,10 @@ namespace MonkeModManager
             }
             this.Close();
         }
+
+        private void FormSelectLanguage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

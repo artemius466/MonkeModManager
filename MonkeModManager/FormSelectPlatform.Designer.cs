@@ -66,7 +66,7 @@
             this.buttonConfirm.UseVisualStyleBackColor = true;
             this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
             // 
-            // FormSelectPlatform
+            // FormSelectLanguage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -80,12 +80,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormSelectPlatform";
+            this.Name = "FormSelectLanguage";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Please select your platform";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.FormSelectLanguage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

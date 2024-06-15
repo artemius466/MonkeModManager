@@ -14,6 +14,9 @@ using MonkeModManager.Internals.SimpleJSON;
 using System.Text.RegularExpressions;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Runtime;
+
+using MonkeModManager.Languages;
 
 namespace MonkeModManager
 {
@@ -28,6 +31,11 @@ namespace MonkeModManager
         private bool modsDisabled = false;
         public bool isSteam = true;
         public bool platformDetected = false;
+        public bool russian = false;
+
+
+        LanguageManager languageManager = new LanguageManager();
+        Dictionary<String, String> currentLanguage;
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -46,6 +54,45 @@ namespace MonkeModManager
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
+        private void SetLanguage(int langId = -1)
+        {
+            if (langId == -1)
+            {
+                Form1 someForm = new Form1(this);
+
+                someForm.ShowDialog(this);
+
+                if (russian)
+                {
+                    StreamWriter sw = new StreamWriter(Path.Combine(InstallDirectory, "1.language"));
+                    sw.Close();
+                } else
+                {
+                    StreamWriter sw = new StreamWriter(Path.Combine(InstallDirectory, "0.language"));
+                    sw.Close();
+                }
+            } else
+            {
+                if (langId == 1) russian = true;
+            }
+
+            if (russian) languageManager.setLanguage(0); else languageManager.setLanguage(1);
+
+            currentLanguage = languageManager.GetLanguage();
+
+            label1.Text = currentLanguage["gorillaTagFolderPath"];
+            buttonOpenConfig.Text = currentLanguage["configFolder"];
+            buttonOpenGameFolder.Text = currentLanguage["gameFolder"];
+            buttonMods.Text = currentLanguage["modsFolder"];
+            buttonToggleMods.Text = currentLanguage["disableMods"];
+            buttonModInfo.Text = currentLanguage["viewModInfo"];
+            buttonInstall.Text = currentLanguage["installUpdate"];
+            buttonUninstallAll.Text = currentLanguage["uninstallAllMods"];
+            buttonBackupMods.Text = currentLanguage["backupMods"];
+            buttonRestoreMods.Text = currentLanguage["restoreMods"];
+            buttonSelectLanguage.Text = currentLanguage["selectLanguage"];
+        }
+
         private void FormMain_Load(object sender, EventArgs e)
         {
             foreach(Button btn in Controls.OfType<Button>())
@@ -56,11 +103,25 @@ namespace MonkeModManager
             LocationHandler();
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             releases = new List<ReleaseInfo>();
+
+            if (!File.Exists(Path.Combine(InstallDirectory, "0.language")) && !File.Exists(Path.Combine(InstallDirectory, "1.language"))) {
+                SetLanguage();
+            } else if (File.Exists(Path.Combine(InstallDirectory, "1.language")))
+            {
+                SetLanguage(1);
+            } else if (File.Exists(Path.Combine(InstallDirectory, "0.language")))
+            {
+                SetLanguage(0);
+            }
+
+
+
+
             if (!File.Exists(Path.Combine(InstallDirectory, "winhttp.dll")))
             {
                 if (File.Exists(Path.Combine(InstallDirectory, "mods.disable")))
                 {
-                    buttonToggleMods.Text = "Enable Mods";
+                    buttonToggleMods.Text = currentLanguage["enableMods"];
                     modsDisabled = true;
                     buttonToggleMods.Enabled = true;
                 }
@@ -83,8 +144,8 @@ namespace MonkeModManager
 
         private void LoadReleases()
         {
-            var decodedMods = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/BzzzThe18th/MonkeModInfo/master/modinfo.json"));
-            var decodedGroups = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/BzzzThe18th/MonkeModInfo/master/groupinfo.json"));
+            var decodedMods = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/artemius466/MonkeModInfo/master/modinfo.json"));
+            var decodedGroups = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/artemius466/MonkeModInfo/master/groupinfo.json"));
 
             var allMods = decodedMods.AsArray;
             var allGroups = decodedGroups.AsArray;
@@ -106,7 +167,7 @@ namespace MonkeModManager
                     groups.Add(current["name"], groups.Count());
                 }
             }
-            groups.Add("Uncategorized", groups.Count());
+            groups.Add(currentLanguage["uncategorized"], groups.Count());
 
             foreach (ReleaseInfo release in releases)
             {
@@ -120,7 +181,7 @@ namespace MonkeModManager
         private void LoadRequiredPlugins()
         {
             CheckVersion();
-            UpdateStatus("Getting latest version info...");
+            UpdateStatus(currentLanguage["gettingLatestVersionInfo"]);
             LoadReleases();
             this.Invoke((MethodInvoker)(() =>
             {//Invoke so we can call from current thread
@@ -152,7 +213,7 @@ namespace MonkeModManager
 
                     if (release.Group == null || !groups.ContainsKey(release.Group))
                     {
-                        item.Group = listViewMods.Groups[groups["Uncategorized"]];
+                        item.Group = listViewMods.Groups[groups[currentLanguage["uncategorized"]]];
                     }
                     else if (groups.ContainsKey(release.Group))
                     {
@@ -165,7 +226,7 @@ namespace MonkeModManager
 
             }));
            
-            UpdateStatus("Release info updated!");
+            UpdateStatus(currentLanguage["releaseInfoUpdated"]);
 
         }
 
@@ -284,7 +345,7 @@ namespace MonkeModManager
                     }
                     else
                     {
-                        MessageBox.Show("That's not the Gorilla Tag exectuable! please try again!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(currentLanguage["notGorillaTag"], currentLanguage["error"], MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
@@ -376,13 +437,13 @@ namespace MonkeModManager
         private void buttonUninstallAll_Click(object sender, EventArgs e)
         {
             var confirmResult = MessageBox.Show(
-                "You are about to delete all your mods (including any saved data in your plugins). This cannot be undone!\n\nAre you sure you wish to continue?",
-                "Confirm Delete",
+                currentLanguage["uninstallAll"],
+                currentLanguage["confirmDelete"],
                 MessageBoxButtons.YesNo);
 
             if (confirmResult == DialogResult.Yes)
             {
-                UpdateStatus("Uninstalling all mods");
+                UpdateStatus(currentLanguage["deletingMods"]);
 
                 var pluginsPath = Path.Combine(InstallDirectory, @"BepInEx\plugins");
 
@@ -400,12 +461,12 @@ namespace MonkeModManager
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Something went wrong!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    UpdateStatus("Failed to uninstall mods.");
+                    MessageBox.Show(currentLanguage["somethingWentWrong"], currentLanguage["error"], MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    UpdateStatus(currentLanguage["failedToUninstallMods"]);
                     return;
                 }
 
-                UpdateStatus("All mods uninstalled successfully!");
+                UpdateStatus(currentLanguage["modsUninstalled"]);
             }
         }
 
@@ -423,7 +484,7 @@ namespace MonkeModManager
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK && saveFileDialog.FileName != "")
             {
-                UpdateStatus("Backing up mods...");
+                UpdateStatus(currentLanguage["backupProcess"]);
                 try
                 {
                     if (File.Exists(saveFileDialog.FileName)) File.Delete(saveFileDialog.FileName);
@@ -431,11 +492,11 @@ namespace MonkeModManager
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Something went wrong!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    UpdateStatus("Failed to back up mods.");
+                    MessageBox.Show(currentLanguage["somethingWentWrong"], currentLanguage["error"], MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    UpdateStatus(currentLanguage["backupFailed"]);
                     return;
                 }
-                UpdateStatus("Successfully backed up mods!");
+                UpdateStatus(currentLanguage["backupSuccess"]);
             }
 
 
@@ -453,14 +514,14 @@ namespace MonkeModManager
                 {
                     if (!Path.GetExtension(fileDialog.FileName).Equals(".zip", StringComparison.InvariantCultureIgnoreCase))
                     {
-                        MessageBox.Show("Invalid file!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        UpdateStatus("Failed to restore mods.");
+                        MessageBox.Show(currentLanguage["invalidFile"] , currentLanguage["enableMods"], MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        UpdateStatus(currentLanguage["enableMods"]);
                         return;
                     }
                     var pluginsPath = Path.Combine(InstallDirectory, @"BepInEx\plugins");
                     try
                     {
-                        UpdateStatus("Restoring mods...");
+                        UpdateStatus(currentLanguage["enableMods"]);
                         using (var archive = ZipFile.OpenRead(fileDialog.FileName))
                         {
                             foreach (var entry in archive.Entries)
@@ -474,12 +535,12 @@ namespace MonkeModManager
                                 entry.ExtractToFile(Path.Combine(pluginsPath, entry.FullName), true);
                             }
                         }
-                        UpdateStatus("Successfully restored mods!");
+                        UpdateStatus(currentLanguage["enableMods"]);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Something went wrong!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        UpdateStatus("Failed to restore mods.");
+                        MessageBox.Show(currentLanguage["enableMods"], currentLanguage["enableMods"], MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        UpdateStatus(currentLanguage["enableMods"]);
                     }
                 }
             }
@@ -578,7 +639,7 @@ namespace MonkeModManager
 
         private void UpdateStatus(string status)
         {
-            string formattedText = string.Format("Status: {0}", status);
+            string formattedText = string.Format("{0}: {1}", currentLanguage["status"], status);
             this.Invoke((MethodInvoker)(() =>
             { //Invoke so we can call from any thread
                 labelStatus.Text = formattedText;
@@ -620,13 +681,13 @@ namespace MonkeModManager
         private void CheckVersion()
         {
             UpdateStatus("Checking for updates...");
-            Int16 version = Convert.ToInt16(DownloadSite("https://raw.githubusercontent.com/BzzzThe18th/MonkeModManager/master/update.txt"));
+            Int16 version = Convert.ToInt16(DownloadSite("https://raw.githubusercontent.com/artemius466/MonkeModManager/master/update.txt"));
             if (version > CurrentVersion)
             {
                 this.Invoke((MethodInvoker)(() =>
                 {
                     MessageBox.Show("Your version of the mod installer is outdated! Please download the new one!", "Update available!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    Process.Start("https://github.com/BzzzThe18th/MonkeModManager/releases/latest");
+                    Process.Start("https://github.com/artemius466/MonkeModManager/releases/latest");
                     Process.GetCurrentProcess().Kill();
                     Environment.Exit(0);
                 }));
@@ -783,10 +844,10 @@ namespace MonkeModManager
                 if (File.Exists(Path.Combine(InstallDirectory, "mods.disable")))
                 {
                     File.Move(Path.Combine(InstallDirectory, "mods.disable"), Path.Combine(InstallDirectory, "winhttp.dll"));
-                    buttonToggleMods.Text = "Disable Mods";
+                    buttonToggleMods.Text = currentLanguage["disableMods"];
                     buttonToggleMods.BackColor = Color.FromArgb(120, 0, 0);
                     modsDisabled = false;
-                    UpdateStatus("Enabled mods!");
+                    UpdateStatus(currentLanguage["modsEnabled"]);
                 }
             }
             else
@@ -794,12 +855,31 @@ namespace MonkeModManager
                 if (File.Exists(Path.Combine(InstallDirectory, "winhttp.dll")))
                 {
                     File.Move(Path.Combine(InstallDirectory, "winhttp.dll"), Path.Combine(InstallDirectory, "mods.disable"));
-                    buttonToggleMods.Text = "Enable Mods";
+                    buttonToggleMods.Text = currentLanguage["enableMods"];
                     buttonToggleMods.BackColor = Color.FromArgb(0, 120, 0);
                     modsDisabled = true;
-                    UpdateStatus("Disabled mods!");
+                    UpdateStatus(currentLanguage["modsDisabled"]);
                 }
             }
+        }
+
+        private void listViewMods_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSelectLanguage_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(Path.Combine(InstallDirectory, "1.language")))
+            {
+                File.Delete(Path.Combine(InstallDirectory, "1.language"));
+            }
+            else if (File.Exists(Path.Combine(InstallDirectory, "0.language")))
+            {
+                File.Delete(Path.Combine(InstallDirectory, "0.language"));
+            }
+
+            Application.Restart();
         }
     }
 
