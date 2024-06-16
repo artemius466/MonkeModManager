@@ -393,7 +393,7 @@ namespace MonkeModManager
                 }
             }
 
-            if (release.Name.Contains("BepInEx")) { e.Item.Checked = true; };
+            if (release.Name.Contains("BepInEx") || release.Name.Contains("Utilla")) { e.Item.Checked = true; };
             release.Install = e.Item.Checked;
         }
 
