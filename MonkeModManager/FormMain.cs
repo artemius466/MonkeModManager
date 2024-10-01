@@ -144,8 +144,8 @@ namespace MonkeModManager
 
         private void LoadReleases()
         {
-            var decodedMods = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/artemius466/MonkeModInfo/master/modinfo.json"));
-            var decodedGroups = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/artemius466/MonkeModInfo/master/groupinfo.json"));
+            var decodedMods = JSON.Parse(DownloadSite("http://45.143.164.142/modinfo.json"));
+            var decodedGroups = JSON.Parse(DownloadSite("http://45.143.164.142/groupinfo.json"));
 
             var allMods = decodedMods.AsArray;
             var allGroups = decodedGroups.AsArray;
@@ -263,12 +263,14 @@ namespace MonkeModManager
                     byte[] file = DownloadFile(release.Link);
                     UpdateStatus(string.Format("Installing...{0}", release.Name));
                     string fileName = Path.GetFileName(release.Link);
+
                     if (Path.GetExtension(fileName).Equals(".dll"))
                     {
                         string dir;
+
                         if (release.InstallLocation == null)
                         {
-                            dir = Path.Combine(InstallDirectory, @"BepInEx\plugins", Regex.Replace(release.Name, @"\s+", string.Empty));
+                            dir = Path.Combine(InstallDirectory, @"BepInEx\plugins");
                             if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
                         }
                         else
@@ -277,20 +279,21 @@ namespace MonkeModManager
                         }
                         File.WriteAllBytes(Path.Combine(dir, fileName), file);
 
-                        var dllFile = Path.Combine(InstallDirectory, @"BepInEx\plugins", fileName);
-                        if (File.Exists(dllFile))
-                        {
-                            File.Delete(dllFile);
-                        }
+                        //var dllFile = Path.Combine(InstallDirectory, @"BepInEx\plugins", fileName);
+                        //if (File.Exists(dllFile))
+                        //{
+                        //    File.Delete(dllFile);
+                        //}
+                        UpdateStatus(string.Format("Installed {0} to {1}!", release.Name, dir));
                     }
                     else
                     {
                         UnzipFile(file, (release.InstallLocation != null) ? Path.Combine(InstallDirectory, release.InstallLocation) : InstallDirectory);
+                        UpdateStatus(string.Format("Installed {0}!", release.Name));
                     }
-                    UpdateStatus(string.Format("Installed {0}!", release.Name));
                 }
             }
-            UpdateStatus("Install complete!");
+            //UpdateStatus("Install complete!");
             ChangeInstallButtonState(true);
 
             this.Invoke((MethodInvoker)(() =>
@@ -621,20 +624,37 @@ namespace MonkeModManager
 
         private void UnzipFile(byte[] data, string directory)
         {
-            using (MemoryStream ms = new MemoryStream(data))
+            try
             {
-                using (var unzip = new Unzip(ms))
+                using (MemoryStream ms = new MemoryStream(data))
                 {
-                    unzip.ExtractToDirectory(directory);
+                    using (var unzip = new Unzip(ms))
+                    {
+                        unzip.ExtractToDirectory(directory);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Process.GetCurrentProcess().Kill();
             }
         }
 
         private byte[] DownloadFile(string url)
         {
-            WebClient client = new WebClient();
-            client.Proxy = null;
-            return client.DownloadData(url);
+            try
+            {
+                WebClient client = new WebClient();
+                client.Proxy = null;
+                return client.DownloadData(url);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Process.GetCurrentProcess().Kill();
+                return null;
+            }
         }
 
         private void UpdateStatus(string status)
