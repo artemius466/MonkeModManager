@@ -17,6 +17,7 @@ using System.Drawing.Drawing2D;
 using System.Runtime;
 
 using MonkeModManager.Languages;
+using System.Runtime.Remoting.Lifetime;
 
 namespace MonkeModManager
 {
@@ -900,6 +901,16 @@ namespace MonkeModManager
             }
 
             Application.Restart();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://artemius466.fun/");
         }
     }
 

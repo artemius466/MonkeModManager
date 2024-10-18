@@ -51,8 +51,9 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.buttonSelectLanguage = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStripMain.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -105,7 +106,7 @@
             this.buttonInstall.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInstall.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonInstall.ForeColor = System.Drawing.Color.White;
-            this.buttonInstall.Location = new System.Drawing.Point(551, 116);
+            this.buttonInstall.Location = new System.Drawing.Point(551, 131);
             this.buttonInstall.Name = "buttonInstall";
             this.buttonInstall.Size = new System.Drawing.Size(112, 46);
             this.buttonInstall.TabIndex = 4;
@@ -160,7 +161,7 @@
             this.buttonRestoreMods.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRestoreMods.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRestoreMods.ForeColor = System.Drawing.Color.White;
-            this.buttonRestoreMods.Location = new System.Drawing.Point(551, 272);
+            this.buttonRestoreMods.Location = new System.Drawing.Point(551, 287);
             this.buttonRestoreMods.Name = "buttonRestoreMods";
             this.buttonRestoreMods.Size = new System.Drawing.Size(112, 46);
             this.buttonRestoreMods.TabIndex = 3;
@@ -176,7 +177,7 @@
             this.buttonBackupMods.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBackupMods.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBackupMods.ForeColor = System.Drawing.Color.White;
-            this.buttonBackupMods.Location = new System.Drawing.Point(551, 220);
+            this.buttonBackupMods.Location = new System.Drawing.Point(551, 235);
             this.buttonBackupMods.Name = "buttonBackupMods";
             this.buttonBackupMods.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.buttonBackupMods.Size = new System.Drawing.Size(112, 46);
@@ -193,7 +194,7 @@
             this.buttonUninstallAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUninstallAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUninstallAll.ForeColor = System.Drawing.Color.White;
-            this.buttonUninstallAll.Location = new System.Drawing.Point(551, 168);
+            this.buttonUninstallAll.Location = new System.Drawing.Point(551, 183);
             this.buttonUninstallAll.Name = "buttonUninstallAll";
             this.buttonUninstallAll.Size = new System.Drawing.Size(112, 46);
             this.buttonUninstallAll.TabIndex = 0;
@@ -210,7 +211,7 @@
             this.buttonModInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonModInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonModInfo.ForeColor = System.Drawing.Color.White;
-            this.buttonModInfo.Location = new System.Drawing.Point(551, 64);
+            this.buttonModInfo.Location = new System.Drawing.Point(551, 79);
             this.buttonModInfo.Name = "buttonModInfo";
             this.buttonModInfo.Size = new System.Drawing.Size(112, 46);
             this.buttonModInfo.TabIndex = 9;
@@ -227,7 +228,7 @@
             this.buttonToggleMods.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonToggleMods.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonToggleMods.ForeColor = System.Drawing.Color.White;
-            this.buttonToggleMods.Location = new System.Drawing.Point(551, 12);
+            this.buttonToggleMods.Location = new System.Drawing.Point(551, 27);
             this.buttonToggleMods.Name = "buttonToggleMods";
             this.buttonToggleMods.Size = new System.Drawing.Size(112, 46);
             this.buttonToggleMods.TabIndex = 10;
@@ -298,7 +299,7 @@
             this.listViewMods.Location = new System.Drawing.Point(12, 91);
             this.listViewMods.Name = "listViewMods";
             this.listViewMods.ShowItemToolTips = true;
-            this.listViewMods.Size = new System.Drawing.Size(529, 280);
+            this.listViewMods.Size = new System.Drawing.Size(529, 290);
             this.listViewMods.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listViewMods.TabIndex = 0;
             this.listViewMods.UseCompatibleStateImageBehavior = false;
@@ -351,17 +352,6 @@
             this.minimizeToolStripMenuItem.Text = "Minimize";
             this.minimizeToolStripMenuItem.Click += new System.EventHandler(this.clickMinimize);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.panel1.ContextMenuStrip = this.contextMenuStrip1;
-            this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(543, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2, 360);
-            this.panel1.TabIndex = 11;
-            // 
             // buttonSelectLanguage
             // 
             this.buttonSelectLanguage.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -370,7 +360,7 @@
             this.buttonSelectLanguage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSelectLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSelectLanguage.ForeColor = System.Drawing.Color.White;
-            this.buttonSelectLanguage.Location = new System.Drawing.Point(551, 324);
+            this.buttonSelectLanguage.Location = new System.Drawing.Point(551, 339);
             this.buttonSelectLanguage.Name = "buttonSelectLanguage";
             this.buttonSelectLanguage.Size = new System.Drawing.Size(112, 46);
             this.buttonSelectLanguage.TabIndex = 12;
@@ -378,15 +368,44 @@
             this.buttonSelectLanguage.UseVisualStyleBackColor = false;
             this.buttonSelectLanguage.Click += new System.EventHandler(this.buttonSelectLanguage_Click);
             // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(551, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 22);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Quit";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label2.Location = new System.Drawing.Point(9, 384);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(268, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Created by Artemius466 // artemius466.fun // clickable";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.ClientSize = new System.Drawing.Size(671, 383);
+            this.ClientSize = new System.Drawing.Size(671, 397);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonSelectLanguage);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.listViewMods);
             this.Controls.Add(this.buttonOpenConfig);
             this.Controls.Add(this.buttonMods);
@@ -407,7 +426,7 @@
             this.Name = "FormMain";
             this.Opacity = 0.98D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Monke Mod Manager";
+            this.Text = "Monke Mod Manager RUS";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.contextMenuStripMain.ResumeLayout(false);
@@ -440,8 +459,9 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem minimizeToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonSelectLanguage;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
