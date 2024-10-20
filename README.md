@@ -8,7 +8,7 @@ Just fork of MonkeModManager with some additions
 
 ## Screenshots
 
-[![FastPic.Ru](https://github.com/artemius466/MonkeModManager/blob/master/images/screenshot1.png?raw=true)
+![Screenshot](https://github.com/artemius466/MonkeModManager/blob/master/images/screenshot1.png?raw=true)
 
 
 ## Installation
